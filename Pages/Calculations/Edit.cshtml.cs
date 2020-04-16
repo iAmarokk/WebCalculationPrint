@@ -30,7 +30,7 @@ namespace WebCalculationPrint.Pages.Calculations
                 return NotFound();
             }
 
-            Calculation = await _context.Calculation
+            Calculation = await _context.Calculations
                 .Include(c => c.Colourfulness)
                 .Include(c => c.Format)
                 .Include(c => c.Paper).FirstOrDefaultAsync(m => m.CalculationID == id);

@@ -39,7 +39,7 @@ namespace WebCalculationPrint.Pages.Calculations
                 return Page();
             }
 
-            _context.Calculation.Add(Calculation);
+            _context.Calculations.Add(Calculation);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

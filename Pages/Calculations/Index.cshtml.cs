@@ -23,7 +23,7 @@ namespace WebCalculationPrint.Pages.Calculations
 
         public async Task OnGetAsync()
         {
-            Calculation = await _context.Calculation
+            Calculation = await _context.Calculations
                 .Include(c => c.Colourfulness)
                 .Include(c => c.Format)
                 .Include(c => c.Paper).ToListAsync();

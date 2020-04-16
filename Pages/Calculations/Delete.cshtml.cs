@@ -48,11 +48,11 @@ namespace WebCalculationPrint.Pages.Calculations
                 return NotFound();
             }
 
-            Calculation = await _context.Calculation.FindAsync(id);
+            Calculation = await _context.Calculations.FindAsync(id);
 
             if (Calculation != null)
             {
-                _context.Calculation.Remove(Calculation);
+                _context.Calculations.Remove(Calculation);
                 await _context.SaveChangesAsync();
             }
 
