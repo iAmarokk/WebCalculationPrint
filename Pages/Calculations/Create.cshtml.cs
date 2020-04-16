@@ -52,6 +52,12 @@ namespace WebCalculationPrint.Pages.Calculations
             var perem = Calculation.Discount;
             Calculation.TotalCost = Calculation.TotalPages * FormatRateDB.FormatRate * ColourfulnessRateDB.ColourfulnessRate *
                                     PaperRateDB.PaperCost;
+            if(Calculation.Discount > 0)
+            {
+                Calculation.TotalCost = Calculation.TotalCost - Calculation.TotalCost * (Calculation.Discount / 100);
+
+            }
+
             _context.Calculations.Add(Calculation);
             await _context.SaveChangesAsync();
 

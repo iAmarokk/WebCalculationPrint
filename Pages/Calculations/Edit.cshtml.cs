@@ -56,6 +56,23 @@ namespace WebCalculationPrint.Pages.Calculations
 
             _context.Attach(Calculation).State = EntityState.Modified;
 
+            var FormatRateDB = _context.Formats
+                       .Single(b => b.FormatID == Calculation.FormatID);
+
+            var ColourfulnessRateDB = _context.Colourfulnesses
+                       .Single(b => b.ColourfulnessID == Calculation.ColourfulnessID);
+
+            var PaperRateDB = _context.Papers
+                       .Single(b => b.PaperID == Calculation.PaperID);
+            var perem = Calculation.Discount;
+            Calculation.TotalCost = Calculation.TotalPages * FormatRateDB.FormatRate * ColourfulnessRateDB.ColourfulnessRate *
+                                    PaperRateDB.PaperCost;
+
+            if (Calculation.Discount > 0)
+            {
+                Calculation.TotalCost = Calculation.TotalCost - Calculation.TotalCost * (Calculation.Discount / 100);
+
+            }
             try
             {
                 await _context.SaveChangesAsync();
