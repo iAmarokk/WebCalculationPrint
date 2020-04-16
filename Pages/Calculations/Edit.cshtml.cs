@@ -77,7 +77,7 @@ namespace WebCalculationPrint.Pages.Calculations
 
         private bool CalculationExists(int id)
         {
-            return _context.Calculation.Any(e => e.CalculationID == id);
+            return _context.Calculations.Any(e => e.CalculationID == id);
         }
     }
 }
