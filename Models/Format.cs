@@ -11,6 +11,6 @@ namespace WebCalculationPrint.Models
         public int FormatID { get; set; }
         public string Name { get; set; }
         [Column(TypeName = "decimal(10, 2)")]
-        public decimal ColourfulnessRate { get; set; }
+        public decimal FormatRate { get; set; }
     }
 }
