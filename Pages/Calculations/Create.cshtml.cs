@@ -21,6 +21,8 @@ namespace WebCalculationPrint.Pages.Calculations
 
         public IActionResult OnGet()
         {
+        //decimal[] discount = { 0,10,20,30};
+        //ViewData["Discount"] = new SelectList(discount, discount[0]);
         ViewData["ColourfulnessID"] = new SelectList(_context.Set<Colourfulness>(), "ColourfulnessID","Name");
         ViewData["FormatID"] = new SelectList(_context.Set<Format>(), "FormatID","Name");
         ViewData["PaperID"] = new SelectList(_context.Set<Paper>(), "PaperID", "Thickness");
@@ -39,6 +41,17 @@ namespace WebCalculationPrint.Pages.Calculations
                 return Page();
             }
 
+            var FormatRateDB = _context.Formats
+                       .Single(b => b.FormatID == Calculation.FormatID);
+
+            var ColourfulnessRateDB = _context.Colourfulnesses
+                       .Single(b => b.ColourfulnessID == Calculation.ColourfulnessID);
+
+            var PaperRateDB = _context.Papers
+                       .Single(b => b.PaperID == Calculation.PaperID);
+            var perem = Calculation.Discount;
+            Calculation.TotalCost = Calculation.TotalPages * FormatRateDB.FormatRate * ColourfulnessRateDB.ColourfulnessRate *
+                                    PaperRateDB.PaperCost;
             _context.Calculations.Add(Calculation);
             await _context.SaveChangesAsync();
 
