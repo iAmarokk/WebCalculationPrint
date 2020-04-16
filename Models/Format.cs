@@ -7,7 +7,7 @@ namespace WebCalculationPrint.Models
 {
     public class Format
     {
-        public int ColourfulnessID { get; set; }
+        public int FormatID { get; set; }
         public string Name { get; set; }
         public decimal ColourfulnessRate { get; set; }
     }
