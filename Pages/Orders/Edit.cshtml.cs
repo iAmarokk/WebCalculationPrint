@@ -37,7 +37,8 @@ namespace WebCalculationPrint.Pages.Orders
             {
                 return NotFound();
             }
-           ViewData["ClientID"] = new SelectList(_context.Clients, "ClientID", "ClientID");
+           ViewData["ClientID"] = new SelectList(_context.Clients, "ClientID", "Name");
+           ViewData["CalculationID"] = new SelectList(_context.Clients, "CalculationID", "Name");
             return Page();
         }
 
