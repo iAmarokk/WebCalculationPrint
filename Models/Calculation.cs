@@ -9,6 +9,7 @@ namespace WebCalculationPrint.Models
 {
     public class Calculation
     {
+        [Display(Name = "Номер")]
         public int CalculationID { get; set; }
         [Display(Name = "Формат")]
         public int FormatID { get; set; }

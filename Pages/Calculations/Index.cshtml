@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Calculation[0].CalculationID)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Calculation[0].Format)
             </th>
             <th>
@@ -37,6 +40,9 @@
     <tbody>
 @foreach (var item in Model.Calculation) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CalculationID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Format.Name)
             </td>
