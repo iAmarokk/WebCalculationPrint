@@ -39,9 +39,9 @@ namespace WebCalculationPrint.Pages.Calculations
             {
                 return NotFound();
             }
-           ViewData["ColourfulnessID"] = new SelectList(_context.Set<Colourfulness>(), "ColourfulnessID", "ColourfulnessID");
-           ViewData["FormatID"] = new SelectList(_context.Set<Format>(), "FormatID", "FormatID");
-           ViewData["PaperID"] = new SelectList(_context.Set<Paper>(), "PaperID", "PaperID");
+            ViewData["ColourfulnessID"] = new SelectList(_context.Set<Colourfulness>(), "ColourfulnessID", "Name");
+            ViewData["FormatID"] = new SelectList(_context.Set<Format>(), "FormatID", "Name");
+            ViewData["PaperID"] = new SelectList(_context.Set<Paper>(), "PaperID", "Thickness");
             return Page();
         }
 

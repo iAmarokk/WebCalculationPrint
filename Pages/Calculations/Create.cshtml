@@ -14,30 +14,30 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label>Формат бумаги</label>
+                <label asp-for="Calculation.FormatID" class="control-label"></label>
                 <select asp-for="Calculation.FormatID" class="form-control" asp-items="ViewBag.FormatID">
                     <option value="">-- Выбор формата бумаги --</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>Плотность бумаги</label>
+                <label asp-for="Calculation.PaperID" class="control-label"></label>
                 <select asp-for="Calculation.PaperID" class="form-control" asp-items="ViewBag.PaperID">
                     <option value="">-- Выбор плотности бумаги --</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>Цветность</label>
+                <label asp-for="Calculation.ColourfulnessID" class="control-label"></label>
                 <select asp-for="Calculation.ColourfulnessID" class="form-control" asp-items="ViewBag.ColourfulnessID">
                     <option value="">-- Выбор красочности --</option>
                 </select>
             </div>
             <div class="form-group">
-                <label>Общее количество страниц</label>
+                <label asp-for="Calculation.TotalPages" class="control-label"></label>
                 <input asp-for="Calculation.TotalPages" class="form-control" />
                 <span asp-validation-for="Calculation.TotalPages" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label>Скидка</label>
+                <label asp-for="Calculation.Discount" class="control-label"></label>
                 <input asp-for="Calculation.Discount" class="form-control" asp-items="ViewBag.Discount">
 
             </div>
