@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using WebCalculationPrint.Data;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
 
 namespace WebCalculationPrint
 {
@@ -46,6 +48,20 @@ namespace WebCalculationPrint
             }
 
             app.UseHttpsRedirection();
+            var supportedCultures = new[]
+            {
+             new CultureInfo("en-US"),
+             new CultureInfo("fr"),
+            };
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("en-US"),
+                // Formatting numbers, dates, etc.
+                SupportedCultures = supportedCultures,
+                // UI strings that we have localized.
+                SupportedUICultures = supportedCultures
+            });
+
             app.UseStaticFiles();
 
             app.UseRouting();
