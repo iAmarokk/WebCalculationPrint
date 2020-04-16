@@ -1,0 +1,56 @@
+﻿@page
+@model WebCalculationPrint.Pages.Calculations.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Calculation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Calculation.FormatID" class="control-label"></label>
+                <select asp-for="Calculation.FormatID" class ="form-control" asp-items="ViewBag.FormatID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Calculation.PaperID" class="control-label"></label>
+                <select asp-for="Calculation.PaperID" class ="form-control" asp-items="ViewBag.PaperID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Calculation.ColourfulnessID" class="control-label"></label>
+                <select asp-for="Calculation.ColourfulnessID" class ="form-control" asp-items="ViewBag.ColourfulnessID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Calculation.TotalPages" class="control-label"></label>
+                <input asp-for="Calculation.TotalPages" class="form-control" />
+                <span asp-validation-for="Calculation.TotalPages" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Calculation.Discount" class="control-label"></label>
+                <input asp-for="Calculation.Discount" class="form-control" />
+                <span asp-validation-for="Calculation.Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Calculation.TotalCost" class="control-label"></label>
+                <input asp-for="Calculation.TotalCost" class="form-control" />
+                <span asp-validation-for="Calculation.TotalCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

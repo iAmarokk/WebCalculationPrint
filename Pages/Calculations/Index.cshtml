@@ -1,0 +1,66 @@
+﻿@page
+@model WebCalculationPrint.Pages.Calculations.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Calculation[0].Format)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calculation[0].Paper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calculation[0].Colourfulness)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calculation[0].TotalPages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calculation[0].Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calculation[0].TotalCost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Calculation) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Format.FormatID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Paper.PaperID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Colourfulness.ColourfulnessID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCost)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CalculationID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CalculationID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CalculationID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
