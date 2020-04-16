@@ -21,9 +21,9 @@ namespace WebCalculationPrint.Pages.Calculations
 
         public IActionResult OnGet()
         {
-        ViewData["ColourfulnessID"] = new SelectList(_context.Set<Colourfulness>(), "ColourfulnessID", "Name");
-        ViewData["FormatID"] = new SelectList(_context.Set<Format>(), "FormatID", "Name");
-        ViewData["PaperID"] = new SelectList(_context.Set<Paper>(), "PaperID", "Name");
+        ViewData["ColourfulnessID"] = new SelectList(_context.Set<Colourfulness>(), "ColourfulnessID","Name");
+        ViewData["FormatID"] = new SelectList(_context.Set<Format>(), "FormatID","Name");
+        ViewData["PaperID"] = new SelectList(_context.Set<Paper>(), "PaperID", "Thickness");
             return Page();
         }
 
