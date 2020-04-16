@@ -16,6 +16,7 @@ namespace WebCalculationPrint.Models
         public Format Format { get; set; }
         [Display(Name = "Плотность бумаги")]
         public int PaperID { get; set; }
+        [Display(Name = "Плотность бумаги")]
         public Paper Paper { get; set; }
         [Display(Name = "Цветность")]
         public int ColourfulnessID { get; set; }
